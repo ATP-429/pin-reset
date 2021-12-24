@@ -37,6 +37,28 @@
             return $result->num_rows > 0;
         }
 
+        //This function should be called when user resets pin in his locker successfully
+        function update_id($email) //Generates the next iteration of verification id
+        {
+            $query = $this->conn->prepare("SELECT * FROM info WHERE email=?");
+            $query->bind_param("s", $email);
+            $query->execute();
+            $result = $query->get_result();
+
+            $old_id = $result->fetch_assoc()['verification_id'];
+            $id = $old_id;
+            for($i = 0; $i < 10_000; $i++)
+            {
+                //Get the first 4 digits of cube of the number
+                $id = substr(strval($id*$id*$id), 0, 4);
+            }
+
+            $query = $this->conn->prepare("UPDATE info SET verification_id=? WHERE email=?");
+            $query->bind_param("is", $id, $email);
+            $query->execute();
+            return "Verification id successfully updated to ".$id;
+        }
+
         //Closes connection with database
         function close() { $conn->close(); }
     }
