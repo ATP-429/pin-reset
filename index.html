@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>SIGN UP</title>
+<style>
+body{
+   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+* {box-sizing: border-box}
+input[type=text], input[type=password] {
+   width: 100%;
+   font-size: 28px;
+   padding: 15px;
+   margin: 5px 0 22px 0;
+
+   border: none;
+   background: #f1f1f1;
+}
+label{
+   font-size: 15px;
+}
+input[type=text], input[type=password] {
+   background-color: #ddd;
+   outline: none;
+    
+}
+hr {
+   border: 1px solid #f1f1f1;
+   margin-bottom: 25px;
+}
+button {
+   font-size: 18px;
+   font-weight: bold;
+   background-color: rgb(220, 235, 14);
+   color: rgb(250, 23, 23);
+   padding: 14px 20px;
+   margin: 8px 0;
+   border: none;
+   cursor: pointer;
+   width: 100%;
+   opacity: 0.7;
+}
+button:hover {
+   opacity:1;
+}
+.cancel {
+   padding: 14px 20px;
+   background-color: #e7d912;
+}
+.formContainer {
+   padding: 16px;
+}
+.formContainer p{
+   font-size: 28px;
+}
+nav{
+		width:100%;
+		background:rgb(0, 5, 5);
+		overflow:auto;
+	}
+	ul{
+		padding:0;
+		margin:0 0 0 150px;
+		list-style:none;
+	}
+	li{
+		float:left;
+	}
+	
+	nav a{
+		width:100 px;
+		display:block;
+		padding: 20 px 15 px;
+		text-decoration: none;
+		font-family:Arial, Helvetica, sans-serif;
+		color: #df1885;
+		text-align:center;
+
+	}
+	nav a:hover{
+		background:purple;
+		
+		text-transform:uppercase;
+	}
+    body  {
+        background-image: url("back.jpg");
+        background-color: #cccccc;
+        background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+      }
+      form {   
+        border: 3px solid #f1f1f1;   
+    }
+</style>
+<body>
+   <div class="logo"></a>
+   </div>
+   <nav>
+        <ul>      
+       <li><a href="signup.html"> Sign Up&nbsp; &nbsp; </a></li>
+            <li><a href="login.html">Login&nbsp;&nbsp; </a></li>
+    </ul>
+   </nav>
+<form action="register.php" method="get">
+<div class="formContainer">
+  
+<h1>Sign Up Form</h1>
+<label for="email"><b>Email</b></label>
+<input type="text" placeholder="Enter Email" name="email" required>
+<label for="password"><b>Password</b></label>
+<input type="password" placeholder="Enter Password" name="password" required>
+<label for="repeatPassword"><b>Repeat Password</b></label>
+<input type="password" placeholder="Repeat Password" name="repeatPassword"
+required>
+<label>
+<input type="checkbox" checked="checked" name="remember" style="margin-bottom: 15px"> Remember me
+</label>
+<p>By creating an account you agree to our <a href="#"
+style="color:dodgerblue">Terms & Privacy</a><p>
+<div>
+<button type="button" class="cancel" onclick="alert(`Cancelled`)">Cancel</button>
+<button type="submit" class="signup" onclick="alert(`Go to Login Page `)">Sign Up</button>
+</div>
+</div>
+</form>
+</body>
+</html>

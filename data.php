@@ -4,7 +4,7 @@
         const SERVER_NAME = 'localhost';
         const USER = 'root';
         const PASS = 'admin';
-        const DB_NAME = 'users';
+        const DB_NAME = 'pin_reset';
 
         public $conn;
 
@@ -16,13 +16,13 @@
         }
 
         //Add email and verification id to database
-        function register($email, $verification_id)
+        function register($email, $password)
         {
             if($this->exists($email))
                 return 'Email already in use.';
 
-            $query = $this->conn->prepare("INSERT INTO info(email, verification_id) VALUES(?, ?);");
-            $query->bind_param("si", $email, $verification_id);
+            $query = $this->conn->prepare("INSERT INTO user_info(email, password) VALUES(?, ?);");
+            $query->bind_param("ss", $email, $password);
             $query->execute();
 
             return 'Email successfully registered.';
@@ -30,17 +30,16 @@
 
         function exists($email)
         {
-            $query = $this->conn->prepare("SELECT * FROM info WHERE email=?");
+            $query = $this->conn->prepare("SELECT * FROM user_info WHERE email=?");
             $query->bind_param("s", $email);
             $query->execute();
             $result = $query->get_result();
             return $result->num_rows > 0;
         }
-
         //This function should be called when user resets pin in his locker successfully
         function update_id($email) //Generates the next iteration of verification id
         {
-            $query = $this->conn->prepare("SELECT * FROM info WHERE email=?");
+            $query = $this->conn->prepare("SELECT * FROM user_info WHERE email=?");
             $query->bind_param("s", $email);
             $query->execute();
             $result = $query->get_result();
@@ -53,7 +52,7 @@
                 $id = substr(strval($id*$id*$id), 0, 4);
             }
 
-            $query = $this->conn->prepare("UPDATE info SET verification_id=? WHERE email=?");
+            $query = $this->conn->prepare("UPDATE user_info SET verification_id=? WHERE email=?");
             $query->bind_param("is", $id, $email);
             $query->execute();
             return "Verification id successfully updated to ".$id;
