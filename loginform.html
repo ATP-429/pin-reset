@@ -1,0 +1,107 @@
+<!DOCTYPE html>   
+<html>   
+<head>  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title> Login Page </title>  
+<style>   
+ 
+button {   
+       background-color: #beda25;   
+       width: 100%;  
+        color: rgb(219, 21, 70);   
+        padding: 15px;   
+        margin: 10px 0px;   
+        border: none;   
+        cursor: pointer;   
+         }   
+ form {   
+        border: 3px solid #f1f1f1;   
+    }   
+ input[type=text], input[type=password] {   
+        width: 100%;   
+        margin: 8px 0;  
+        padding: 12px 20px;   
+        display: inline-block;   
+        border: 2px solid green;   
+        box-sizing: border-box;   
+    }  
+ button:hover {   
+        opacity: 0.7;   
+    }   
+  .cancelbtn {   
+        width: auto;   
+        padding: 10px 18px;  
+        margin: 10px 5px;  
+    }   
+        
+     
+ .container {   
+        padding: 25px;   
+        background-color: lightblue;  
+    }   
+    nav{
+		width:100%;
+		background:rgb(0, 0, 0);
+		overflow:auto;
+	}
+	ul{
+		padding:0;
+		margin:0 0 0 150px;
+		list-style:none;
+	}
+	li{
+		float:left;
+	}
+	
+	nav a{
+		width:100 px;
+		display:block;
+		padding: 20 px 15 px;
+		text-decoration: none;
+		font-family:Arial, Helvetica, sans-serif;
+		color: #df1885;
+		text-align:center;
+
+	}
+	nav a:hover{
+		background:purple;
+		
+		text-transform:uppercase;
+	}
+    body  {
+        font-family: Calibri, Helvetica, sans-serif;  
+        background-image: url("back.jpg");
+        background-color: #cccccc;
+        background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+	
+      }
+</style>   
+</head>   
+<body>    
+   
+    <nav>
+         <ul>
+       
+        <li><a href="signup.html"> Sign Up&nbsp; &nbsp; </a></li>
+             <li><a href="loginform.html">Login&nbsp;&nbsp; </a></li>
+
+     </ul>
+    </nav>
+    <center> <h1> USER LOG IN </h1> </center>   
+    <form action="login.php" method="GET">  
+        <div class="container">   
+            <label>Email : </label>   
+            <input type="text" placeholder="Enter Email" name="email" required>  
+            <label>Password : </label>   
+            <input type="password" placeholder="Enter Password" name="password" required>  
+            <button type="submit">Login</button>
+            <input type="checkbox" checked="checked"> Remember me   
+            <button type="button" class="cancelbtn"> Cancel</button>   
+            Forgot <a onclick = "alert('Check your email ! ')" href="#"> password? </a>   
+        </div>   
+    </form>     
+</body>     
+</html>

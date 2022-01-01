@@ -1,9 +1,10 @@
 <?php
-    require 'data.php';
+    require 'server.php';
 
+	$username = $_GET['username'];
 	$email = $_GET['email'];
 	$password = $_GET['password'];
-    $dh = new DataHandler;
-    $dh->connect();
-    echo $dh->register($email,$password);
+    $server = new Server;
+    $server->connect();
+    echo $server->register($username, $email, $password);
 ?>
