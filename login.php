@@ -16,4 +16,5 @@
 		else
 			echo "Invalid username/password";
 	}
+	session_destroy();
 ?>
